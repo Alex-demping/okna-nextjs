@@ -1,0 +1,145 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #fff;
+    --foreground: #0a0a0a;
+    --font-sans: var(--font-roboto);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-roboto), sans-serif;
+}
+
+.swiper-pagination {
+  bottom: 15px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 1;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  display: block;
+  background-color: #573107;
+  border-radius: 50%;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #ffb15a;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  text-align: center;
+  margin: 0 0 20px;
+  font-weight: 700;
+}
+
+.prose ul {
+  list-style: none;
+  padding: 0;
+}
+
+.prose ul li {
+  margin: 0 0 5px;
+  padding: 0 0 0 15px;
+  position: relative;
+}
+
+.prose ul li::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background-color: #ffb15a;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 9px;
+}
+
+.prose img {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 10px 20px;
+}
+
+.prose img.float-left {
+  margin: 0 20px 20px 0;
+}
+
+@theme {
+  --animate-tossing: tossing 1.5s ease-in-out infinite;
+
+  @keyframes tossing {
+    0% {
+      transform: rotate(-6deg);
+    }
+
+    50% {
+      transform: rotate(6deg);
+    }
+
+    100% {
+      transform: rotate(-6deg);
+    }
+  }
+}
+
+@keyframes circle-anim {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+}
+
+@keyframes circle-fill-anim {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.2;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(0.7);
+    opacity: 0.2;
+  }
+}
+
+@media (min-width: 1024px) {
+  .swiper-pagination {
+    display: none;
+  }
+}
